@@ -1,5 +1,5 @@
 <template>
-  <h2>{{msg}}</h2>
+  <h2>{{ msg }}</h2>
   <div v-for="item in state.items">
     <li>
       {{item.count }} - {{ item.name}}
@@ -10,15 +10,9 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import { useItemsAsync } from '../hooks/useItemsAsync';
-
 defineProps<{ msg: string }>()
-const { state, deleteItem, loadItems } = useItemsAsync()
-
-onMounted( async () => {
-  loadItems()
-})
+const { state, deleteItem } = useItemsAsync()
 </script>
 
 <style scoped>
